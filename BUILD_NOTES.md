@@ -2,7 +2,7 @@
 
 ## Project goals
 
-CORE was rebuilt as a durable, server-independent publication. The implementation deliberately uses only semantic HTML and one human-readable CSS file. There is no JavaScript and nothing to install, compile, or update.
+CORE was rebuilt as a durable, server-independent publication. The implementation uses semantic HTML, one human-readable CSS file, and a small dependency-free JavaScript file for the mobile menu. There is nothing to install, compile, or update.
 
 ## Page structure
 
@@ -25,8 +25,8 @@ Use ISO dates in the `<time datetime="YYYY-MM-DD">` attribute and natural-langua
 ## Styling map
 
 - `:root` — colors, fonts, maximum widths
-- `.site-header`, `.brand`, `nav` — shared navigation
-- `.intro`, `.archive`, `.post-row` — homepage
+- `.site-header`, `.brand`, `.menu-toggle`, `.mobile-nav` — shared navigation
+- `.archive`, `.post-row` — homepage
 - `.page-layout`, `.about-copy` — About page
 - `.article-*`, `.prose`, `blockquote` — single posts
 - `.site-footer` — shared footer
@@ -42,6 +42,7 @@ The responsive breakpoints are `48rem` and `30rem`. The layout also uses `clamp(
 - Text sizes use relative units and layouts tolerate 200% text enlargement.
 - `prefers-reduced-motion` disables nonessential transition duration.
 - Color is never the only way the current page is identified.
+- The mobile-menu button exposes its open state to assistive technology, supports Escape, and returns focus when dismissed from the keyboard.
 
 ## Deployment notes
 

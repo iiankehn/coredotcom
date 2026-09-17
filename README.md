@@ -1,6 +1,6 @@
 # CORE by Iian Kehn
 
-CORE is a lightweight personal publishing site built entirely with HTML and CSS. It has no JavaScript, framework, package manager, database, or build step.
+CORE is a lightweight static publishing site built with readable HTML and CSS. One small vanilla JavaScript file controls the mobile menu; there is no framework, package manager, database, or build step.
 
 ## What is included
 
@@ -8,6 +8,7 @@ CORE is a lightweight personal publishing site built entirely with HTML and CSS.
 - `about.html` — editable about-page template
 - `templates/post-template.html` — clean starting point for new posts
 - `css/style.css` — all layout, typography, color, and responsive rules
+- `js/main.js` — accessible mobile-menu behavior
 - `assets/images/` — optimized WebP featured artwork for published reports
 - `BUILD_NOTES.md` — editing and deployment instructions
 - `CNAME` — GitHub Pages custom domain configuration

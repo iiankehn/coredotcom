@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="CORE — notes on technology, systems, and the ideas underneath them by Iian Kehn.">
   <title>CORE by Iian Kehn</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -16,13 +16,11 @@
         <a aria-current="page" href="index.html">Blog</a>
         <a href="about.html">About</a>
       </nav>
-      <details class="mobile-menu">
-        <summary>Menu</summary>
-        <nav aria-label="Mobile navigation">
-          <a aria-current="page" href="index.html">Blog</a>
-          <a href="about.html">About</a>
-        </nav>
-      </details>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a aria-current="page" href="index.html">Blog</a>
+        <a href="about.html">About</a>
+      </nav>
     </div>
   </header>
 
@@ -98,5 +96,6 @@
       <p>Written by hand. Built with HTML + CSS.</p>
     </div>
   </footer>
+  <script src="js/main.js?v=1" defer></script>
 </body>
 </html>

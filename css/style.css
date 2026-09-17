@@ -58,6 +58,7 @@ nav a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--b
 .read-link:hover span { transform: translate(.15rem, -.15rem); }
 .empty-note { display: flex; align-items: center; gap: .8rem; padding-top: 2rem; color: var(--dim); font-size: .88rem; }
 .pulse { width: .5rem; height: .5rem; flex: 0 0 auto; border-radius: 50%; background: var(--blue); box-shadow: 0 0 1rem rgb(93 169 255 / 60%); }
+.archive-note { max-width: 43rem; margin: 2rem 0 0 auto; color: var(--dim); font-size: .82rem; }
 
 .page-layout { display: grid; grid-template-columns: minmax(15rem, .85fr) minmax(0, 1.15fr); gap: clamp(3rem, 9vw, 9rem); padding-block: clamp(5rem, 11vw, 9rem); }
 .page-title h1 { font-size: clamp(3.25rem, 7vw, 6.5rem); }
@@ -79,6 +80,10 @@ blockquote { margin: 2.75rem 0; padding: .25rem 0 .25rem 1.75rem; border-left: 2
 blockquote p { margin: 0 !important; }
 .article-end { max-width: var(--reading); margin: 5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; color: var(--dim); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
 .article-end a { color: var(--blue); text-decoration: none; }
+.source-card { max-width: var(--reading); margin: 4rem auto 0; padding: 1.5rem; border: 1px solid var(--line); background: var(--surface); }
+.source-card strong { display: block; margin-bottom: .45rem; color: var(--ink); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+.source-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+.source-card a { color: var(--blue); }
 
 .site-footer { border-top: 1px solid var(--line); }
 .footer-inner { min-height: 8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: var(--dim); font-size: .75rem; letter-spacing: .05em; text-transform: uppercase; }

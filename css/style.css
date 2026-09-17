@@ -49,8 +49,8 @@ nav a[aria-current="page"] { color: var(--ink); border-bottom: 2px solid var(--b
 .post-row { display: grid; grid-template-columns: 3rem minmax(15rem, .72fr) minmax(18rem, 1fr); align-items: center; gap: clamp(1rem, 3vw, 3rem); padding: clamp(2.5rem, 6vw, 5rem) 0; border-bottom: 1px solid var(--line); }
 .post-number { color: var(--dim); font-family: var(--serif); font-size: 1.1rem; }
 .post-image { display: block; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid var(--line); background: var(--surface); text-decoration: none; }
-.post-image img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.88) contrast(1.04); transition: transform .45s ease, filter .45s ease; }
-.post-image:hover img { transform: scale(1.025); filter: saturate(1) contrast(1.06); }
+.post-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease, filter .45s ease; }
+.post-image:hover img { transform: scale(1.025); filter: saturate(1.06) contrast(1.02); }
 .post-copy { max-width: 52rem; }
 .post-meta { margin: 0 0 1.25rem; color: var(--muted); font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; }
 .post-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(2.25rem, 5vw, 4.5rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.02; }

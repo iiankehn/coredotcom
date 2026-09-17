@@ -12,7 +12,7 @@ Every page contains the same three broad regions:
 2. A unique `<main>` region for the page content.
 3. A compact footer with ownership and implementation details.
 
-The homepage uses an archive row for every post. Individual articles use the `.article-layout` and `.prose` classes. The About page combines `.page-layout` with the same `.prose` treatment so long-form text remains consistent.
+The homepage uses a blog row for every post. Individual articles use the `.article-layout` and `.prose` classes. The About page combines `.page-layout` with the same `.prose` treatment so long-form text remains consistent.
 
 ## Adding posts safely
 
@@ -20,7 +20,7 @@ Copy `templates/post-template.html`; never edit the template as the live post. T
 
 After writing the post, add a matching `<article class="post-row">` block to `index.html`. Check the filename in both the headline link and the “Read essay” link.
 
-Use ISO dates in the `<time datetime="YYYY-MM-DD">` attribute and natural-language dates for visible text. Update the field-note number in the post and archive number on the homepage.
+Use ISO dates in the `<time datetime="YYYY-MM-DD">` attribute and natural-language dates for visible text. Update the field-note number in the post and list number on the homepage.
 
 ## Styling map
 
@@ -66,5 +66,5 @@ Select the repository root as the publish directory. Leave the build command emp
 - Confirm there is no horizontal scrolling.
 - Check all relative links from both root pages and `posts/` pages.
 - Update page titles and meta descriptions.
-- Confirm the post appears in the homepage archive.
+- Confirm the post appears on the blog homepage.
 - Keep `CNAME` if the GitHub Pages custom domain is still in use.

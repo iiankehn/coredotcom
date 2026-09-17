@@ -4,9 +4,8 @@ CORE is a lightweight personal publishing site built entirely with HTML and CSS.
 
 ## What is included
 
-- `index.html` — archive-style homepage
+- `index.html` — blog homepage
 - `about.html` — editable about-page template
-- `posts/welcome-to-core.html` — example published post
 - `templates/post-template.html` — clean starting point for new posts
 - `css/style.css` — all layout, typography, color, and responsive rules
 - `BUILD_NOTES.md` — editing and deployment instructions

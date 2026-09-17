@@ -1,98 +1,59 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A clean, responsive news archive.">
-    <title>Northline — News Archive</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CORE — notes on technology, systems, and the ideas underneath them by Iian Kehn.">
+  <title>CORE by Iian Kehn</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="site-header glass">
-        <div class="container header-inner">
-            <a class="brand" href="index.html" aria-label="Northline home">NORTHLINE</a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-                <span></span><span></span><span></span>
-                <span class="sr-only">Open menu</span>
-            </button>
-            <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-                <a class="active" href="index.html">Archive</a>
-                <a href="about.html">About</a>
-            </nav>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="CORE home"><span>CORE</span><small>by Iian Kehn</small></a>
+      <nav aria-label="Primary navigation">
+        <a aria-current="page" href="index.html">Archive</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="shell">
+    <section class="intro" aria-labelledby="archive-title">
+      <p class="eyebrow">Independent notes · Omaha, Nebraska</p>
+      <h1 id="archive-title">Ideas, stripped to<br>their <em>core.</em></h1>
+      <p class="lede">Clear thinking about technology, work, and the systems shaping everyday life.</p>
+    </section>
+
+    <section class="archive" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <h2 id="latest-title">Latest writing</h2>
+        <span>2026</span>
+      </div>
+
+      <article class="post-row featured">
+        <div class="post-number" aria-hidden="true">01</div>
+        <div class="post-copy">
+          <p class="post-meta"><time datetime="2026-09-17">September 17, 2026</time> · 4 min read</p>
+          <h3><a href="posts/welcome-to-core.html">Welcome to CORE</a></h3>
+          <p>A quiet place for practical observations, durable ideas, and the details that usually get edited out.</p>
+          <a class="read-link" href="posts/welcome-to-core.html" aria-label="Read Welcome to CORE">Read essay <span aria-hidden="true">↗</span></a>
         </div>
-    </header>
+      </article>
 
-    <main>
-        <section class="archive-hero container fade-in">
-            <p class="eyebrow">NEWS ARCHIVE · SEPTEMBER 2026</p>
-            <h1>Stories worth<br><span>your attention.</span></h1>
-            <p class="intro">A straightforward archive for technology, business, culture, science, and the world around us.</p>
-        </section>
+      <div class="empty-note">
+        <span class="pulse" aria-hidden="true"></span>
+        <p>More notes are being shaped. The archive grows one useful idea at a time.</p>
+      </div>
+    </section>
+  </main>
 
-        <section class="container featured-story fade-in">
-            <a class="featured-card glass" href="articles/future-of-local-computing.html">
-                <div class="featured-image image-placeholder" role="img" aria-label="Abstract blue technology image"></div>
-                <div class="featured-content">
-                    <p class="category">TECHNOLOGY</p>
-                    <h2>The Future of Local Computing Is Becoming Personal Again</h2>
-                    <p class="summary">Smaller devices, capable local models, and better privacy are changing how everyday computing is built.</p>
-                    <p class="meta">September 14, 2026 · 6 min read</p>
-                </div>
-            </a>
-        </section>
-
-        <section class="container archive-section">
-            <div class="section-heading">
-                <h2>Latest stories</h2>
-                <span>01 — 04</span>
-            </div>
-
-            <div class="story-list">
-                <article class="story fade-in">
-                    <div>
-                        <p class="category">BUSINESS</p>
-                        <h3><a href="articles/small-business-cloud.html">Small Businesses Are Rethinking What They Need From the Cloud</a></h3>
-                        <p class="summary">For many smaller organizations, simpler infrastructure and predictable costs are becoming more important than endless features.</p>
-                    </div>
-                    <p class="meta">September 13, 2026 · 5 min read</p>
-                </article>
-
-                <article class="story fade-in">
-                    <div>
-                        <p class="category">SCIENCE</p>
-                        <h3><a href="articles/ocean-mapping.html">A New Generation of Ocean Mapping Is Filling in the Blanks</a></h3>
-                        <p class="summary">Better sensors and autonomous systems are giving researchers a clearer picture of one of Earth's least explored environments.</p>
-                    </div>
-                    <p class="meta">September 12, 2026 · 7 min read</p>
-                </article>
-
-                <article class="story fade-in">
-                    <div>
-                        <p class="category">CULTURE</p>
-                        <h3><a href="articles/slow-media.html">Why Slow Media Is Finding an Audience Again</a></h3>
-                        <p class="summary">Readers increasingly want reporting that gives context instead of asking them to keep scrolling.</p>
-                    </div>
-                    <p class="meta">September 11, 2026 · 4 min read</p>
-                </article>
-
-                <article class="story fade-in">
-                    <div>
-                        <p class="category">WORLD</p>
-                        <h3><a href="articles/cities-after-dark.html">Cities Are Rethinking What Happens After Dark</a></h3>
-                        <p class="summary">From transportation to public spaces, nighttime policy is becoming an important part of urban planning.</p>
-                    </div>
-                    <p class="meta">September 10, 2026 · 6 min read</p>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <span>© 2026 Northline</span>
-            <span>Independent news archive</span>
-        </div>
-    </footer>
-    <script src="js/main.js"></script>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© 2026 Iian Kehn</p>
+      <p>Written by hand. Built with HTML + CSS.</p>
+    </div>
+  </footer>
 </body>
 </html>

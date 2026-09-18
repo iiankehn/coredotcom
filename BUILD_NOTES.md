@@ -25,7 +25,7 @@ Use ISO dates in the `<time datetime="YYYY-MM-DD">` attribute and natural-langua
 ## Styling map
 
 - `:root` — colors, fonts, maximum widths
-- `.site-header`, `.brand`, `.menu-toggle`, `.mobile-nav` — shared navigation
+- `.site-header`, `.brand`, `.theme-toggle`, `.menu-toggle`, `.mobile-nav` — shared navigation and theme controls
 - `.archive`, `.post-row` — homepage
 - `.page-layout`, `.about-copy` — About page
 - `.article-*`, `.prose`, `blockquote` — single posts
@@ -43,6 +43,7 @@ The responsive breakpoints are `48rem` and `30rem`. The layout also uses `clamp(
 - `prefers-reduced-motion` disables nonessential transition duration.
 - Color is never the only way the current page is identified.
 - The mobile-menu button exposes its open state to assistive technology, supports Escape, and returns focus when dismissed from the keyboard.
+- The color theme follows the device setting until a visitor chooses a manual light or dark preference, which is stored locally in the browser.
 
 ## Deployment notes
 

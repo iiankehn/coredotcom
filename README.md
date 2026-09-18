@@ -9,6 +9,7 @@ CORE is a lightweight static publishing site built with readable HTML and CSS. O
 - `templates/post-template.html` — clean starting point for new posts
 - `css/style.css` — all layout, typography, color, and responsive rules
 - `js/main.js` — accessible mobile-menu behavior
+- `js/theme.js` — system-aware light/dark theme toggle and saved preference
 - `assets/images/` — optimized WebP featured artwork for published reports
 - `BUILD_NOTES.md` — editing and deployment instructions
 - `CNAME` — GitHub Pages custom domain configuration

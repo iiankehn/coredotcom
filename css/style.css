@@ -50,3 +50,9 @@ h1,h2,h3,p{margin-top:0}.home-intro h1{font-size:clamp(3rem,6vw,5.4rem);font-wei
 .project.has-image .overline{color:var(--accent)}
 @media(max-width:600px){.project.has-image{min-height:360px}}
 @media(prefers-reduced-motion:reduce){.project.has-image:hover>.tile-image{transform:none}}
+
+/* Separate story metadata and end-note links, including span/time pairs. */
+.byline,article>footer.reading{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .65em}
+.byline{color:var(--muted);font-size:.9rem}
+.byline>*,article>footer.reading>*{white-space:nowrap}
+.byline>*+*::before,article>footer.reading>*+*::before{content:"·";display:inline-block;margin-inline-end:.65em;color:var(--muted)}

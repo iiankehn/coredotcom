@@ -35,10 +35,11 @@ jobs:
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
           DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
         run: python3 scripts/social_publish.py
       - name: Persist posting ledger
-        if: success()
+        if: always() && github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
         run: |
           if ! git diff --quiet -- .github/social-published.json; then
             git config user.name "github-actions[bot]"

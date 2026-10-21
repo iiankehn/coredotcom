@@ -2,71 +2,108 @@
 
 ## Project goals
 
-CORE was rebuilt as a durable, server-independent publication. The implementation uses semantic HTML, one human-readable CSS file, and a small dependency-free JavaScript file for the mobile menu. There is nothing to install, compile, or update.
+CORE is a durable, server-independent publication. It uses semantic HTML, one human-readable CSS file, and a small dependency-free JavaScript file. There is nothing to install, compile, or update.
+
+## Visual design
+
+The site is a modern interpretation of Microsoft Metro with a fixed dark presentation. It shares its design language with Iian's other sites, using a CORE-specific accent.
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--bg` | `#101010` | Page background |
+| `--surface` | `#1c1c1c` | Cards and raised surfaces |
+| `--text` | `#f5f5f5` | Body text |
+| `--muted` | `#b0b0b0` | Secondary text |
+| `--line` | `#383838` | Dividers |
+| `--accent` | `#64d8c8` | Links, focus rings, highlights |
+| `--accent-hover` | `#9de8dd` | Link hover |
+
+The font stack begins with Segoe UI Variable and Segoe UI, then falls back to platform fonts. Every page declares `color-scheme: dark` and `theme-color` `#101010`. There is no light mode or theme toggle; don't reintroduce one without a deliberate design decision.
 
 ## Page structure
 
-Every page contains the same three broad regions:
+Every page contains the same three regions:
 
-1. A header with the CORE wordmark and two navigation links.
+1. A header with the CORE wordmark and Blog and About links shown directly; there is no collapsed menu.
 2. A unique `<main>` region for the page content.
-3. A compact footer with ownership and implementation details.
+3. A compact footer.
 
-The homepage uses a blog row for every post. Individual articles use the `.article-layout` and `.prose` classes. The About page combines `.page-layout` with the same `.prose` treatment so long-form text remains consistent.
+**Homepage.** `.page-heading` introduces the blog, followed by `section.projects`, a grid of story cards. Each card is an `article.project.has-image` containing:
 
-## Adding posts safely
+- a decorative `.tile-image` background (`alt=""`, `aria-hidden="true"`), with `loading="lazy"` on every card except the first
+- a `.tag` holding the `<time>` and reading time
+- an `h3` headline link
+- a one-sentence summary that matches the article's deck
+- a `.project-link` “Read report” link
 
-Copy `templates/post-template.html`; never edit the template as the live post. The template is already one directory below the project root, so its `../` asset and navigation paths are correct for files placed in `posts/`.
+**Articles.** These use `.page-heading` with `.back-link` and `.overline` (`Category · Field note NNN`), then the `h1`, `.article-deck`, and `.byline`. Next come `figure.article-image`, the `.reading` body (`.standfirst` for the opening paragraph and `h2` section headings), an `aside.reading` source credit, and `footer.reading` with the end-note number.
 
-After writing the post, add a matching `<article class="post-row">` block to `index.html`. Check the filename in both the headline link and the “Read essay” link.
+**About page.** It uses `.page-heading` and `.reading`.
 
-Use ISO dates in the `<time datetime="YYYY-MM-DD">` attribute and natural-language dates for visible text. Update the field-note number in the post and list number on the homepage.
+## Paths
+
+Root pages reference `css/…`, `js/…`, and `assets/…`. Pages in `posts/` use `../css/…`, `../assets/…`, and `../index.html`. Every page has an explicit `.html` URL, so don't rename existing files.
+
+## Adding posts
+
+1. Copy `templates/post-template.html` into `posts/`. Never edit the template as the live post.
+2. Use the next unused field-note number; check the highest existing one with `grep -ho 'Field note [0-9]*' posts/*.html | sort | tail -1`. Use it in both the overline and the end note.
+3. Date the post by the original source's publication date. Use `<time datetime="YYYY-MM-DD">` with a matching readable date.
+4. Add the featured figure after the header. The template doesn't include it:
+   `<figure class="article-image"><img src="../assets/images/NAME.webp" alt="Meaningful description" width="1672" height="941"></figure>`
+5. Add the source credit before the end note: an `aside.reading` with `<strong>Original reporting</strong>`, links to the reporting and any official confirmation, and an image credit.
+6. Add the matching card to `index.html` in date order, newest first. Update the URL in both the headline and “Read report” links. Keep the headline, summary, date, reading time, and image identical between the card and the article. Give the previous first card `loading="lazy"`.
+
+### Editorial defaults
+
+- Approved recurring sources: The Verge, Thurrott, AppleInsider, 9to5Mac, 9to5Google, Windows Central, and Apple Newsroom. Confirm claims with an official primary source where one exists. A one-off source used for a single story does not join this list.
+- Check existing posts before picking a story to avoid duplicate coverage.
+- Write original headlines and copy, separate rumor from confirmed news, and credit the original reporting.
+- Every post needs relevant featured artwork, also used on its card. Use official press images where they're appropriate and permitted; otherwise use original, colorful artwork specific to the story. Save images as optimized WebP files at 1672 × 941.
 
 ## Styling map
 
-- `:root` — colors, fonts, maximum widths
-- `.site-header`, `.brand`, `.theme-toggle`, `.menu-toggle`, `.mobile-nav` — shared navigation and theme controls
-- `.archive`, `.post-row` — homepage
-- `.page-layout`, `.about-copy` — About page
-- `.article-*`, `.prose`, `blockquote` — single posts
+- `:root` — color tokens
+- `.site-header`, `.brand`, `.header-inner nav` — shared header
+- `.page-heading`, `.overline`, `.back-link` — page titles
+- `.projects`, `.project`, `.project.has-image`, `.tile-image`, `.tag`, `.project-link` — homepage cards
+- `.article-deck`, `.byline`, `.article-image`, `.reading`, `.standfirst` — articles
 - `.site-footer` — shared footer
-- media queries — tablet and mobile adjustments
 
-The responsive breakpoints are `48rem` and `30rem`. The layout also uses `clamp()` so type and spacing scale smoothly between phone and desktop sizes.
+**Breakpoints.** Media queries at `800px` and `600px` handle tablet and phone, with a small `360px` adjustment. There are also reduced-motion and print rules.
 
-## Accessibility decisions
+**Metadata separators.** `.byline` and `article > footer.reading` use flex wrapping, with a `> * + *::before` rule inserting the middle-dot separators. This handles any mix of `span` and `time` elements; don't add separators by hand.
 
-- Semantic landmarks and heading order support navigation by assistive technology.
-- A keyboard-visible skip link appears when focused.
-- Focus states use a high-contrast blue outline.
-- Text sizes use relative units and layouts tolerate 200% text enlargement.
-- `prefers-reduced-motion` disables nonessential transition duration.
-- Color is never the only way the current page is identified.
-- The mobile-menu button exposes its open state to assistive technology, supports Escape, and returns focus when dismissed from the keyboard.
-- The color theme follows the device setting until a visitor chooses a manual light or dark preference, which is stored locally in the browser.
+**Cache-busting.** Pages load `css/style.css?v=story-separators-20261013`. After changing the stylesheet, update that version string in `index.html`, `about.html`, every file in `posts/`, and the template.
 
-## Deployment notes
+## Accessibility
 
-No build command is required. Deploy the repository root as a static directory.
+- Semantic landmarks and heading order support assistive technology.
+- A skip link appears when it receives keyboard focus.
+- Focus states use a 2px accent outline (`:focus-visible`).
+- Text uses relative units, and layouts tolerate 200% text enlargement.
+- `prefers-reduced-motion` disables transitions and the card image hover effect.
+- The current page is marked with `aria-current="page"`, not color alone.
+- Article images have meaningful alt text; homepage card images are decorative because the card text identifies the story.
+- `js/main.js` supports `aria-expanded`, Escape, outside clicks, focus return, and closing at desktop widths when `.menu-toggle` and `.mobile-nav` markup is present.
+
+## Deployment
+
+No build command is required.
 
 ### GitHub Pages
 
-In repository settings, choose **Deploy from a branch**, select `main`, and choose `/ (root)`. The included `CNAME` retains the custom domain `core.iiankehn.com`.
+Deploys from `main`, root `/`. The `CNAME` file keeps the custom domain `core.iiankehn.com`, and DNS is managed through Cloudflare. After pushing, the “pages build and deployment” workflow publishes the site, usually within a minute.
 
-### Apache or Nginx
+### Other hosts
 
-Copy all files and directories to the configured document root. Ensure directory indexes include `index.html`. No rewrites are required because every page has an explicit `.html` URL.
-
-### Other static hosts
-
-Select the repository root as the publish directory. Leave the build command empty.
+Serve the repository root as a static directory, with `index.html` as the default document. No rewrites are needed.
 
 ## Pre-publish checklist
 
-- Open the homepage, About page, and every new post.
-- Test at phone, tablet, and desktop widths.
-- Confirm there is no horizontal scrolling.
-- Check all relative links from both root pages and `posts/` pages.
-- Update page titles and meta descriptions.
-- Confirm the post appears on the blog homepage.
-- Keep `CNAME` if the GitHub Pages custom domain is still in use.
+- Open the homepage, the About page, and every new post.
+- Test at phone, tablet, and desktop widths, and confirm there is no horizontal scrolling.
+- Check relative links and image loading from both root pages and `posts/`.
+- Verify titles, meta descriptions, dates, reading times, credits, and field-note numbers.
+- Confirm the card and the article match, and that the cards are in date order.
+- Keep `CNAME` while the custom domain is in use.

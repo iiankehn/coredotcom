@@ -1,22 +1,27 @@
 # CORE by Iian Kehn
 
-CORE is a lightweight static publishing site built with readable HTML and CSS. One small vanilla JavaScript file controls the mobile menu; there is no framework, package manager, database, or build step.
+CORE is a static publication covering phones, computers, operating systems, software, and services. It is written in plain HTML and one CSS file, with a small vanilla JavaScript file for menu behavior; there is no framework, package manager, database, or build step.
+
+The site uses a fixed dark theme inspired by Microsoft Metro: large lightweight type, flat surfaces, generous spacing, and a teal accent. There is no light mode.
+
+Live site: https://core.iiankehn.com
 
 ## What is included
 
-- `index.html` — blog homepage
-- `about.html` — editable about-page template
-- `templates/post-template.html` — clean starting point for new posts
+- `index.html` — blog homepage; every story card is written by hand
+- `about.html` — About page
+- `posts/*.html` — individual articles, each a complete page
+- `templates/post-template.html` — starting point for a new article
 - `css/style.css` — all layout, typography, color, and responsive rules
-- `js/main.js` — accessible mobile-menu behavior
-- `js/theme.js` — system-aware light/dark theme toggle and saved preference
-- `assets/images/` — optimized WebP featured artwork for published reports
-- `BUILD_NOTES.md` — editing and deployment instructions
-- `CNAME` — GitHub Pages custom domain configuration
+- `js/main.js` — accessible mobile-menu behavior; exits early on pages without menu controls, which currently includes all of them
+- `js/theme.js` — placeholder comment noting the fixed dark theme; not loaded by any page
+- `assets/images/` — WebP featured artwork, 1672 × 941
+- `BUILD_NOTES.md` — structure, publishing, and deployment details
+- `CNAME` — GitHub Pages custom domain
 
 ## Run locally
 
-You can open `index.html` directly in a browser. For a closer match to a production server, run any static file server from the project directory, for example:
+From the repository root:
 
 ```bash
 python3 -m http.server 8000
@@ -26,19 +31,21 @@ Then visit `http://localhost:8000`.
 
 ## Publish a new post
 
-1. Copy `templates/post-template.html` into `posts/`.
-2. Give the copy a short lowercase filename, such as `posts/my-new-post.html`.
-3. Replace the placeholder title, description, date, note number, reading time, and article text.
-4. Copy the post entry in `index.html`, update its metadata and links, and place it above older entries.
-5. Preview the homepage and the post before uploading or committing your changes.
+1. Copy `templates/post-template.html` into `posts/` with a short lowercase filename, such as `posts/my-new-post.html`.
+2. Replace the title, meta description, category and field-note number, headline, deck, date, reading time, body, and end-note number.
+3. Add the featured image figure and the “Original reporting” credit. The template doesn't include them; copy them from a recent post.
+4. Add a matching `.project.has-image` card to `index.html` in date order, newest first.
+5. Preview the homepage and the post, then commit to `main`.
+
+See `BUILD_NOTES.md` for the full checklist.
 
 ## Deployment
 
-Upload the project exactly as-is to any static host or ordinary web server. GitHub Pages, Cloudflare Pages, Netlify, Apache, and Nginx can all serve it without a build command. Point the web root at this directory and make `index.html` the default document.
+GitHub Pages serves the site from `main`, root `/`. Pushing to `main` publishes it. Any other static host works too, with no build command.
 
 ## Design changes
 
-The main color and sizing values are grouped at the top of `css/style.css` under `:root`. Change those custom properties to adjust the site without searching through the rest of the stylesheet.
+Colors and sizing values are custom properties under `:root` at the top of `css/style.css`. When changing the stylesheet, also bump its `?v=` query string in every page so browsers fetch the new version.
 
 ## License and content
 

@@ -17,6 +17,7 @@ Live site: https://core.iiankehn.com
 - `js/theme.js` — placeholder comment noting the fixed dark theme; not loaded by any page
 - `assets/images/` — WebP featured artwork, 1672 × 941
 - `BUILD_NOTES.md` — structure, publishing, and deployment details
+- `tools/check_site.py` — optional standard-library checker for the publishing rules; nothing to install
 - `CNAME` — GitHub Pages custom domain
 
 ## Run locally

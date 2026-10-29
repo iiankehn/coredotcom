@@ -101,6 +101,7 @@ Serve the repository root as a static directory, with `index.html` as the defaul
 
 ## Pre-publish checklist
 
+- Run `python3 tools/check_site.py`. It checks new and changed posts against these rules (field notes, card/article match, image size, card order and loading, stylesheet version); `--all` audits every post.
 - Open the homepage, the About page, and every new post.
 - Test at phone, tablet, and desktop widths, and confirm there is no horizontal scrolling.
 - Check relative links and image loading from both root pages and `posts/`.
